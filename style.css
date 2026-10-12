@@ -1,0 +1,201 @@
+/* =========================================================
+   STYLE.CSS - Trang Home (Azzle)
+   Giao diện chính viết bằng class Tailwind trong index.html.
+   File này chỉ chứa phần CSS riêng mà Tailwind không có sẵn.
+   ========================================================= */
+
+/* =========================================================
+   1. COMPONENTS - Nút bấm, khung chứa
+   ========================================================= */
+
+/* Nút bấm: hover có lớp màu trượt từ trên xuống (::after) */
+.button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  overflow: hidden;
+  border-width: 1px;
+  padding: 10px 25px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  transition: all 0.3s;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: top right;
+  transition: transform 0.3s;
+}
+
+.button:hover::after {
+  transform: scaleY(1);
+}
+
+/* Khung chứa nội dung chính */
+.global-container {
+  max-width: 1332px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* =========================================================
+   2. HEADER - Header nằm đè lên phần Carousel
+   ========================================================= */
+.site-header {
+  width: 100%;
+  z-index: 100;
+}
+
+.site-header--absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* =========================================================
+   3. MENU - Rê chuột vào thì hiện menu con
+   ========================================================= */
+.site-menu-main {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.site-menu-main .nav-item {
+  position: relative;
+  padding: 20px 0;
+}
+
+.site-menu-main .nav-link-item,
+.site-menu-main .sub-menu--item > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #000;
+}
+
+.site-menu-main a:hover {
+  color: #fe330a;
+}
+
+/* Icon mũi tên: xoay 90 độ khi mở menu con */
+.site-menu-main .dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-item-has-children:hover > a .dropdown-icon {
+  transform: rotate(90deg);
+}
+
+/* Menu con (ẩn, rê chuột vào mới hiện) */
+.nav-item-has-children > .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  min-width: 220px;
+  padding: 15px 25px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+}
+
+.nav-item-has-children:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sub-menu--item > a {
+  padding: 8px 0;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+/* Menu con cấp 2 (trong Pages) mở sang phải */
+.sub-menu .nav-item-has-children {
+  position: relative;
+}
+
+.sub-menu .nav-item-has-children > a {
+  justify-content: space-between;
+}
+
+.sub-menu .nav-item-has-children > .sub-menu {
+  top: 0;
+  left: calc(100% + 25px);
+}
+
+/* =========================================================
+   4. CAROUSEL - Hình tròn gradient cam xoay + slider logo
+   ========================================================= */
+.orange-gradient-1 {
+  background: linear-gradient(180deg, #fe330a 0%, #ff9e00 100%);
+  filter: blur(150px);
+  animation-duration: 8s;
+}
+
+.orange-gradient-2 {
+  background: linear-gradient(180deg, #ff9e00 0%, #fe330a 100%);
+  filter: blur(150px);
+  animation-duration: 10s;
+}
+
+/* Slider logo thương hiệu: căn giữa logo theo chiều dọc */
+.brand-slider .swiper-wrapper {
+  align-items: center;
+}
+
+.brand-slider .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================================
+   5. HIỆU ỨNG KHI CUỘN (thay cho thư viện JOS)
+   - .jos: phần tử ẩn lúc đầu
+   - data-jos_animation: kiểu hiệu ứng (fade, zoom, flip, ...)
+   - JS thêm .jos-animated khi phần tử hiện trên màn hình
+   ========================================================= */
+.jos {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.jos.slide-from-bottom {
+  transform: translateY(60px);
+}
+
+.jos[data-jos_animation='zoom'] {
+  transform: scale(0.8);
+}
+
+.jos[data-jos_animation='fade-left'] {
+  transform: translateX(-80px);
+}
+
+.jos[data-jos_animation='fade-right'] {
+  transform: translateX(80px);
+}
+
+.jos[data-jos_animation='flip'] {
+  transform: perspective(1000px) rotateY(90deg);
+}
+
+.jos.jos-animated {
+  opacity: 1;
+  transform: none;
+}
