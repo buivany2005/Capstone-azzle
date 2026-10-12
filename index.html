@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azzle - AI Technology & Startup HTML Template</title>
+    <meta name="description" content="AIMass Tailwind based SASS Template" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" />
+
+    <!-- Font chữ: Inter (nội dung) + DM Sans (tiêu đề) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Thư viện (libs): Swiper - slider logo thương hiệu -->
+    <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Cấu hình Tailwind: thêm màu và font riêng của Azzle -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        colorOrangyRed: '#FE330A',
+                        colorLinenRuffle: '#EFEAE3',
+                        colorCodGray: '#191919',
+                    },
+                    fontFamily: {
+                        body: ['Inter', 'sans-serif'],
+                        dmSans: ['DM Sans', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Style mặc định cho body và tiêu đề
+         (đặt trong @layer base để không bị Tailwind ghi đè) -->
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                min-height: 100vh;
+                font-family: Inter, sans-serif;
+                font-size: 18px;
+                line-height: 1.66;
+                color: #191919;
+            }
+
+            a {
+                transition: all 0.3s linear;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 700;
+                line-height: 1;
+                letter-spacing: -2px;
+                color: #000;
+            }
+
+            h1 {
+                font-size: 120px;
+            }
+
+            h2 {
+                font-size: 80px;
+            }
+        }
+    </style>
+
+    <!-- CSS riêng (nút, header, menu, carousel, hiệu ứng cuộn) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="page-wrapper relative z-[1] bg-white">
+
+        <!--  HEADER -->
+        <header class="site-header site-header--absolute is--white py-3">
+            <div class="global-container">
+                <div class="flex items-center justify-between gap-x-8">
+
+                    <!-- Header: Logo -->
+                    <a href="index.html">
+                        <img src="images/logo-dark.png" alt="AIMass" width="96" height="24" />
+                    </a>
+
+                    <!-- Header: Menu điều hướng -->
+                    <div class="menu-block-wrapper">
+                        <nav class="menu-block" id="append-menu-header">
+                            <!-- Danh sách menu (các trang khác đã đổi link thành #) -->
+                            <ul class="site-menu-main">
+                                <!-- Menu: Demo -->
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#" class="nav-link-item drop-trigger">Demo
+                                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                    <ul class="sub-menu" id="submenu-1">
+                                        <li class="sub-menu--item"><a href="index.html">home 01</a></li>
+                                        <li class="sub-menu--item"><a href="#">home 02</a></li>
+                                        <li class="sub-menu--item"><a href="#">home 03</a></li>
+                                        <li class="sub-menu--item"><a href="#">home 04</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Menu: About -->
+                                <li class="nav-item">
+                                    <a class="nav-link-item" href="#">About</a>
+                                </li>
+
+                                <!-- Menu: Services -->
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#" class="nav-link-item drop-trigger">Services
+                                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                    <ul class="sub-menu" id="submenu-2">
+                                        <li class="sub-menu--item"><a href="#">Services</a></li>
+                                        <li class="sub-menu--item"><a href="#">Service Details</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Menu: Pages (có menu con cấp 2) -->
+                                <li class="nav-item nav-item-has-children">
+                                    <a href="#" class="nav-link-item drop-trigger">Pages
+                                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                    <ul class="sub-menu" id="submenu-3">
+                                        <!-- Pages > Blogs -->
+                                        <li class="sub-menu--item nav-item-has-children">
+                                            <a href="#" data-menu-get="h3" class="drop-trigger">blogs
+                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                            <ul class="sub-menu shape-none" id="submenu-4">
+                                                <li class="sub-menu--item"><a href="#">blogs</a></li>
+                                                <li class="sub-menu--item"><a href="#">blog details</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Pages > Team -->
+                                        <li class="sub-menu--item nav-item-has-children">
+                                            <a href="#" data-menu-get="h3" class="drop-trigger">Team
+                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                            <ul class="sub-menu shape-none" id="submenu-5">
+                                                <li class="sub-menu--item"><a href="#">Teams</a></li>
+                                                <li class="sub-menu--item"><a href="#">Teams Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Pages > FAQ -->
+                                        <li class="sub-menu--item nav-item-has-children">
+                                            <a href="#" data-menu-get="h3" class="drop-trigger">FAQ
+                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                            <ul class="sub-menu shape-none" id="submenu-6">
+                                                <li class="sub-menu--item"><a href="#">FAQ-1</a></li>
+                                                <li class="sub-menu--item"><a href="#">FAQ-2</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Pages > Portfolio -->
+                                        <li class="sub-menu--item nav-item-has-children">
+                                            <a href="#" data-menu-get="h3" class="drop-trigger">Portfolio
+                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                            <ul class="sub-menu shape-none" id="submenu-7">
+                                                <li class="sub-menu--item"><a href="#">Portfolio</a></li>
+                                                <li class="sub-menu--item"><a href="#">Portfolio Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Pages > Pricing -->
+                                        <li class="sub-menu--item">
+                                            <a href="#" data-menu-get="h3">Pricing</a>
+                                        </li>
+                                        <!-- Pages > Utilities -->
+                                        <li class="sub-menu--item nav-item-has-children">
+                                            <a href="#" data-menu-get="h3" class="drop-trigger">Utilities
+                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+                                            <ul class="sub-menu shape-none" id="submenu-8">
+                                                <li class="sub-menu--item"><a href="#">Error 404</a></li>
+                                                <li class="sub-menu--item"><a href="#">Login</a></li>
+                                                <li class="sub-menu--item"><a href="#">Signup</a></li>
+                                                <li class="sub-menu--item"><a href="#">Reset Password</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Menu: Contact -->
+                                <li class="nav-item">
+                                    <a class="nav-link-item" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Header: Nút Login / Sign up -->
+                    <div class="flex items-center gap-6">
+                        <a class="button rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
+                            href="#">Login</a>
+                        <a class="button rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
+                            href="#">Sign up free</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--  HẾT HEADER  -->
+
+        <!-- MAIN: -->
+        <main class="main-wrapper relative overflow-hidden">
+
+            <!-- -----------------------------------------------------
+                 MAIN > 1. CAROUSEL: Tiêu đề lớn, nút, ảnh dashboard,
+                 slider logo thương hiệu, hình tròn cam xoay
+                 ----------------------------------------------------- -->
+            <section id="section-carousel">
+                <div
+                    class="relative z-[1] overflow-hidden bg-colorLinenRuffle rounded-bl-[50px] rounded-br-[50px] pb-[133px] pt-[195px]">
+                    <div class="global-container">
+                        <!-- Carousel: Tiêu đề + mô tả + nút -->
+                        <div class="flex flex-col items-center text-center mb-20">
+                            <h1 class="jos slide-from-bottom mb-6 max-w-[1076px]">
+                                Simplify your SaaS solution with AI
+                            </h1>
+                            <p
+                                class="jos slide-from-bottom mb-11 font-semibold text-xl max-w-[980px]">
+                                Our AI SAAS tool is a cloud-based software delivery model. It
+                                helps businesses forecast demand for products and services and
+                                optimize inventory management and supply chain operations.
+                            </p>
+                            <div class="jos flex flex-wrap justify-center gap-6" data-jos_animation="fade">
+                                <a href="#"
+                                    class="button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white">Get
+                                    started for free</a>
+                                <a href="#"
+                                    class="button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white">Learn
+                                    more</a>
+                            </div>
+                        </div>
+
+                        <!-- Carousel: Ảnh dashboard -->
+                        <div class="jos carousel-img overflow-hidden rounded-2xl bg-black" data-jos_animation="zoom">
+                            <img src="images/hero-dashboard.jpg" alt="hero-dashboard" width="1296" height="640"
+                                class="h-auto w-full" />
+                        </div>
+
+                        <!-- Carousel: Đường kẻ ngang -->
+                        <div class="h-[1px] w-full bg-[#DBD6CF] my-20"></div>
+
+                        <!-- Carousel: Dòng giới thiệu thương hiệu -->
+                        <div class="jos mx-auto max-w-[715px] text-center mb-16">
+                            <p class="text-lg">
+                                Companies of all sizes trust us to find AI SaaS critical to
+                                their growth and innovation
+                            </p>
+                        </div>
+
+                        <!-- Carousel: Slider logo thương hiệu (Swiper) -->
+                        <div class="jos swiper brand-slider" data-jos_animation="fade">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="images/brand-1.png" alt="brand-1" width="180" height="38"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-2.png" alt="brand-2" width="183" height="35"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-3.png" alt="brand-3" width="172" height="35"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-4.png" alt="brand-4" width="175" height="30"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-5.png" alt="brand-5" width="168" height="36"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-1.png" alt="brand-1" width="180" height="38"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-2.png" alt="brand-2" width="183" height="35"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-3.png" alt="brand-3" width="172" height="35"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-4.png" alt="brand-4" width="175" height="30"
+                                        class="max-w-full" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/brand-5.png" alt="brand-5" width="168" height="36"
+                                        class="max-w-full" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel: Hình tròn gradient cam xoay 1 -->
+                    <div
+                        class="orange-gradient-1 absolute -right-[150px] top-[370px] -z-[1] h-[500px] w-[500px] animate-spin rounded-[500px]">
+                    </div>
+                    <!-- Carousel: Hình tròn gradient cam xoay 2 -->
+                    <div
+                        class="orange-gradient-2 absolute right-[57px] top-[620px] -z-[1] h-[450px] w-[450px] animate-spin rounded-[450px]">
+                    </div>
+                </div>
+            </section>
+            <!-- HẾT CAROUSEL  -->
+        </main>
+        <!-- HẾT MAIN  -->
+    </div>
+
+    <!-- Thư viện Swiper -->
+    <script src="libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JS chính: hiệu ứng cuộn, slider logo -->
+    <script src="main.js"></script>
+</body>
+
+</html>
