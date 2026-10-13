@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Azzle - AI Technology & Startup HTML Template</title>
@@ -14,305 +13,802 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Thư viện (libs): Swiper - slider logo thương hiệu -->
     <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate.css (CDN) - thư viện hiệu ứng cuộn, fade, zoom, slide -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <!-- Cấu hình Tailwind: thêm màu và font riêng của Azzle -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        colorOrangyRed: '#FE330A',
-                        colorLinenRuffle: '#EFEAE3',
-                        colorCodGray: '#191919',
-                    },
-                    fontFamily: {
-                        body: ['Inter', 'sans-serif'],
-                        dmSans: ['DM Sans', 'sans-serif'],
-                    },
-                },
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              colorOrangyRed: "#FE330A",
+              colorLinenRuffle: "#EFEAE3",
+              colorCodGray: "#191919",
             },
-        };
+            fontFamily: {
+              body: ["Inter", "sans-serif"],
+              dmSans: ["DM Sans", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
 
     <!-- Style mặc định cho body và tiêu đề
          (đặt trong @layer base để không bị Tailwind ghi đè) -->
     <style type="text/tailwindcss">
-        @layer base {
-            body {
-                min-height: 100vh;
-                font-family: Inter, sans-serif;
-                font-size: 18px;
-                line-height: 1.66;
-                color: #191919;
-            }
-
-            a {
-                transition: all 0.3s linear;
-            }
-
-            h1, h2, h3, h4, h5, h6 {
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 700;
-                line-height: 1;
-                letter-spacing: -2px;
-                color: #000;
-            }
-
-            h1 {
-                font-size: 120px;
-            }
-
-            h2 {
-                font-size: 80px;
-            }
+      @layer base {
+        body {
+          min-height: 100vh;
+          font-family: Inter, sans-serif;
+          font-size: 18px;
+          line-height: 1.66;
+          color: #191919;
         }
+
+        a {
+          transition: all 0.3s linear;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: "DM Sans", sans-serif;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: -2px;
+          color: #000;
+        }
+
+        h1 {
+          font-size: 120px;
+        }
+
+        h2 {
+          font-size: 80px;
+        }
+      }
     </style>
 
     <!-- CSS riêng (nút, header, menu, carousel, hiệu ứng cuộn) -->
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="page-wrapper relative z-[1] bg-white">
+      <!--  HEADER -->
+      <header class="site-header site-header--absolute is--white py-3">
+        <div class="global-container">
+          <div class="flex items-center justify-between gap-x-8">
+            <!-- Header: Logo -->
+            <a href="index.html">
+              <img
+                src="images/logo-dark.png"
+                alt="AIMass"
+                width="96"
+                height="24"
+              />
+            </a>
 
-        <!--  HEADER -->
-        <header class="site-header site-header--absolute is--white py-3">
-            <div class="global-container">
-                <div class="flex items-center justify-between gap-x-8">
+            <!-- Header: Menu điều hướng -->
+            <div class="menu-block-wrapper">
+              <nav class="menu-block" id="append-menu-header">
+                <!-- Danh sách menu (các trang khác đã đổi link thành #) -->
+                <ul class="site-menu-main">
+                  <!-- Menu: Demo -->
+                  <li class="nav-item nav-item-has-children">
+                    <a href="#" class="nav-link-item drop-trigger"
+                      >Demo
+                      <svg
+                        class="dropdown-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m9 18 6-6-6-6" /></svg
+                    ></a>
+                    <ul class="sub-menu" id="submenu-1">
+                      <li class="sub-menu--item">
+                        <a href="index.html">home 01</a>
+                      </li>
+                      <li class="sub-menu--item"><a href="#">home 02</a></li>
+                      <li class="sub-menu--item"><a href="#">home 03</a></li>
+                      <li class="sub-menu--item"><a href="#">home 04</a></li>
+                    </ul>
+                  </li>
 
-                    <!-- Header: Logo -->
-                    <a href="index.html">
-                        <img src="images/logo-dark.png" alt="AIMass" width="96" height="24" />
-                    </a>
+                  <!-- Menu: About -->
+                  <li class="nav-item">
+                    <a class="nav-link-item" href="#">About</a>
+                  </li>
 
-                    <!-- Header: Menu điều hướng -->
-                    <div class="menu-block-wrapper">
-                        <nav class="menu-block" id="append-menu-header">
-                            <!-- Danh sách menu (các trang khác đã đổi link thành #) -->
-                            <ul class="site-menu-main">
-                                <!-- Menu: Demo -->
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Demo
-                                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                    <ul class="sub-menu" id="submenu-1">
-                                        <li class="sub-menu--item"><a href="index.html">home 01</a></li>
-                                        <li class="sub-menu--item"><a href="#">home 02</a></li>
-                                        <li class="sub-menu--item"><a href="#">home 03</a></li>
-                                        <li class="sub-menu--item"><a href="#">home 04</a></li>
-                                    </ul>
-                                </li>
+                  <!-- Menu: Services -->
+                  <li class="nav-item nav-item-has-children">
+                    <a href="#" class="nav-link-item drop-trigger"
+                      >Services
+                      <svg
+                        class="dropdown-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m9 18 6-6-6-6" /></svg
+                    ></a>
+                    <ul class="sub-menu" id="submenu-2">
+                      <li class="sub-menu--item"><a href="#">Services</a></li>
+                      <li class="sub-menu--item">
+                        <a href="#">Service Details</a>
+                      </li>
+                    </ul>
+                  </li>
 
-                                <!-- Menu: About -->
-                                <li class="nav-item">
-                                    <a class="nav-link-item" href="#">About</a>
-                                </li>
+                  <!-- Menu: Pages (có menu con cấp 2) -->
+                  <li class="nav-item nav-item-has-children">
+                    <a href="#" class="nav-link-item drop-trigger"
+                      >Pages
+                      <svg
+                        class="dropdown-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m9 18 6-6-6-6" /></svg
+                    ></a>
+                    <ul class="sub-menu" id="submenu-3">
+                      <!-- Pages > Blogs -->
+                      <li class="sub-menu--item nav-item-has-children">
+                        <a href="#" data-menu-get="h3" class="drop-trigger"
+                          >blogs
+                          <svg
+                            class="dropdown-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m9 18 6-6-6-6" /></svg
+                        ></a>
+                        <ul class="sub-menu shape-none" id="submenu-4">
+                          <li class="sub-menu--item"><a href="#">blogs</a></li>
+                          <li class="sub-menu--item">
+                            <a href="#">blog details</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- Pages > Team -->
+                      <li class="sub-menu--item nav-item-has-children">
+                        <a href="#" data-menu-get="h3" class="drop-trigger"
+                          >Team
+                          <svg
+                            class="dropdown-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m9 18 6-6-6-6" /></svg
+                        ></a>
+                        <ul class="sub-menu shape-none" id="submenu-5">
+                          <li class="sub-menu--item"><a href="#">Teams</a></li>
+                          <li class="sub-menu--item">
+                            <a href="#">Teams Details</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- Pages > FAQ -->
+                      <li class="sub-menu--item nav-item-has-children">
+                        <a href="#" data-menu-get="h3" class="drop-trigger"
+                          >FAQ
+                          <svg
+                            class="dropdown-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m9 18 6-6-6-6" /></svg
+                        ></a>
+                        <ul class="sub-menu shape-none" id="submenu-6">
+                          <li class="sub-menu--item"><a href="#">FAQ-1</a></li>
+                          <li class="sub-menu--item"><a href="#">FAQ-2</a></li>
+                        </ul>
+                      </li>
+                      <!-- Pages > Portfolio -->
+                      <li class="sub-menu--item nav-item-has-children">
+                        <a href="#" data-menu-get="h3" class="drop-trigger"
+                          >Portfolio
+                          <svg
+                            class="dropdown-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m9 18 6-6-6-6" /></svg
+                        ></a>
+                        <ul class="sub-menu shape-none" id="submenu-7">
+                          <li class="sub-menu--item">
+                            <a href="#">Portfolio</a>
+                          </li>
+                          <li class="sub-menu--item">
+                            <a href="#">Portfolio Details</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- Pages > Pricing -->
+                      <li class="sub-menu--item">
+                        <a href="#" data-menu-get="h3">Pricing</a>
+                      </li>
+                      <!-- Pages > Utilities -->
+                      <li class="sub-menu--item nav-item-has-children">
+                        <a href="#" data-menu-get="h3" class="drop-trigger"
+                          >Utilities
+                          <svg
+                            class="dropdown-icon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="m9 18 6-6-6-6" /></svg
+                        ></a>
+                        <ul class="sub-menu shape-none" id="submenu-8">
+                          <li class="sub-menu--item">
+                            <a href="#">Error 404</a>
+                          </li>
+                          <li class="sub-menu--item"><a href="#">Login</a></li>
+                          <li class="sub-menu--item"><a href="#">Signup</a></li>
+                          <li class="sub-menu--item">
+                            <a href="#">Reset Password</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
 
-                                <!-- Menu: Services -->
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Services
-                                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                    <ul class="sub-menu" id="submenu-2">
-                                        <li class="sub-menu--item"><a href="#">Services</a></li>
-                                        <li class="sub-menu--item"><a href="#">Service Details</a></li>
-                                    </ul>
-                                </li>
-
-                                <!-- Menu: Pages (có menu con cấp 2) -->
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Pages
-                                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                    <ul class="sub-menu" id="submenu-3">
-                                        <!-- Pages > Blogs -->
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">blogs
-                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                            <ul class="sub-menu shape-none" id="submenu-4">
-                                                <li class="sub-menu--item"><a href="#">blogs</a></li>
-                                                <li class="sub-menu--item"><a href="#">blog details</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Pages > Team -->
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Team
-                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                            <ul class="sub-menu shape-none" id="submenu-5">
-                                                <li class="sub-menu--item"><a href="#">Teams</a></li>
-                                                <li class="sub-menu--item"><a href="#">Teams Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Pages > FAQ -->
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">FAQ
-                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                            <ul class="sub-menu shape-none" id="submenu-6">
-                                                <li class="sub-menu--item"><a href="#">FAQ-1</a></li>
-                                                <li class="sub-menu--item"><a href="#">FAQ-2</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Pages > Portfolio -->
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Portfolio
-                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                            <ul class="sub-menu shape-none" id="submenu-7">
-                                                <li class="sub-menu--item"><a href="#">Portfolio</a></li>
-                                                <li class="sub-menu--item"><a href="#">Portfolio Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Pages > Pricing -->
-                                        <li class="sub-menu--item">
-                                            <a href="#" data-menu-get="h3">Pricing</a>
-                                        </li>
-                                        <!-- Pages > Utilities -->
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Utilities
-                                                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
-                                            <ul class="sub-menu shape-none" id="submenu-8">
-                                                <li class="sub-menu--item"><a href="#">Error 404</a></li>
-                                                <li class="sub-menu--item"><a href="#">Login</a></li>
-                                                <li class="sub-menu--item"><a href="#">Signup</a></li>
-                                                <li class="sub-menu--item"><a href="#">Reset Password</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <!-- Menu: Contact -->
-                                <li class="nav-item">
-                                    <a class="nav-link-item" href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <!-- Header: Nút Login / Sign up -->
-                    <div class="flex items-center gap-6">
-                        <a class="button rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
-                            href="#">Login</a>
-                        <a class="button rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
-                            href="#">Sign up free</a>
-                    </div>
-                </div>
+                  <!-- Menu: Contact -->
+                  <li class="nav-item">
+                    <a class="nav-link-item" href="#">Contact</a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-        </header>
-        <!--  HẾT HEADER  -->
 
-        <!-- MAIN: -->
-        <main class="main-wrapper relative overflow-hidden">
+            <!-- Header: Nút Login / Sign up -->
+            <div class="flex items-center gap-6">
+              <a
+                class="button rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
+                href="#"
+                >Login</a
+              >
+              <a
+                class="button rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
+                href="#"
+                >Sign up free</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+      <!--  HẾT HEADER  -->
 
-            <!-- -----------------------------------------------------
+      <!-- MAIN: -->
+      <main class="main-wrapper relative overflow-hidden">
+        <!-- -----------------------------------------------------
                  MAIN > 1. CAROUSEL: Tiêu đề lớn, nút, ảnh dashboard,
                  slider logo thương hiệu, hình tròn cam xoay
                  ----------------------------------------------------- -->
-            <section id="section-carousel">
+        <section id="section-carousel">
+          <div
+            class="relative z-[1] overflow-hidden bg-colorLinenRuffle rounded-bl-[50px] rounded-br-[50px] pb-[133px] pt-[195px]"
+          >
+            <div class="global-container">
+              <!-- Carousel: Tiêu đề + mô tả + nút -->
+              <div class="flex flex-col items-center text-center mb-20">
+                <h1 class="jos slide-from-bottom mb-6 max-w-[1076px]">
+                  Simplify your SaaS solution with AI
+                </h1>
+                <p
+                  class="jos slide-from-bottom mb-11 font-semibold text-xl max-w-[980px]"
+                >
+                  Our AI SAAS tool is a cloud-based software delivery model. It
+                  helps businesses forecast demand for products and services and
+                  optimize inventory management and supply chain operations.
+                </p>
                 <div
-                    class="relative z-[1] overflow-hidden bg-colorLinenRuffle rounded-bl-[50px] rounded-br-[50px] pb-[133px] pt-[195px]">
-                    <div class="global-container">
-                        <!-- Carousel: Tiêu đề + mô tả + nút -->
-                        <div class="flex flex-col items-center text-center mb-20">
-                            <h1 class="jos slide-from-bottom mb-6 max-w-[1076px]">
-                                Simplify your SaaS solution with AI
-                            </h1>
-                            <p
-                                class="jos slide-from-bottom mb-11 font-semibold text-xl max-w-[980px]">
-                                Our AI SAAS tool is a cloud-based software delivery model. It
-                                helps businesses forecast demand for products and services and
-                                optimize inventory management and supply chain operations.
-                            </p>
-                            <div class="jos flex flex-wrap justify-center gap-6" data-jos_animation="fade">
-                                <a href="#"
-                                    class="button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white">Get
-                                    started for free</a>
-                                <a href="#"
-                                    class="button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white">Learn
-                                    more</a>
-                            </div>
-                        </div>
-
-                        <!-- Carousel: Ảnh dashboard -->
-                        <div class="jos carousel-img overflow-hidden rounded-2xl bg-black" data-jos_animation="zoom">
-                            <img src="images/hero-dashboard.jpg" alt="hero-dashboard" width="1296" height="640"
-                                class="h-auto w-full" />
-                        </div>
-
-                        <!-- Carousel: Đường kẻ ngang -->
-                        <div class="h-[1px] w-full bg-[#DBD6CF] my-20"></div>
-
-                        <!-- Carousel: Dòng giới thiệu thương hiệu -->
-                        <div class="jos mx-auto max-w-[715px] text-center mb-16">
-                            <p class="text-lg">
-                                Companies of all sizes trust us to find AI SaaS critical to
-                                their growth and innovation
-                            </p>
-                        </div>
-
-                        <!-- Carousel: Slider logo thương hiệu (Swiper) -->
-                        <div class="jos swiper brand-slider" data-jos_animation="fade">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="images/brand-1.png" alt="brand-1" width="180" height="38"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-2.png" alt="brand-2" width="183" height="35"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-3.png" alt="brand-3" width="172" height="35"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-4.png" alt="brand-4" width="175" height="30"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-5.png" alt="brand-5" width="168" height="36"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-1.png" alt="brand-1" width="180" height="38"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-2.png" alt="brand-2" width="183" height="35"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-3.png" alt="brand-3" width="172" height="35"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-4.png" alt="brand-4" width="175" height="30"
-                                        class="max-w-full" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="images/brand-5.png" alt="brand-5" width="168" height="36"
-                                        class="max-w-full" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carousel: Hình tròn gradient cam xoay 1 -->
-                    <div
-                        class="orange-gradient-1 absolute -right-[150px] top-[370px] -z-[1] h-[500px] w-[500px] animate-spin rounded-[500px]">
-                    </div>
-                    <!-- Carousel: Hình tròn gradient cam xoay 2 -->
-                    <div
-                        class="orange-gradient-2 absolute right-[57px] top-[620px] -z-[1] h-[450px] w-[450px] animate-spin rounded-[450px]">
-                    </div>
+                  class="jos flex flex-wrap justify-center gap-6"
+                  data-jos_animation="fade"
+                >
+                  <a
+                    href="#"
+                    class="button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                    >Get started for free</a
+                  >
+                  <a
+                    href="#"
+                    class="button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                    >Learn more</a
+                  >
                 </div>
-            </section>
-            <!-- HẾT CAROUSEL  -->
-        </main>
-        <!-- HẾT MAIN  -->
+              </div>
+
+              <!-- Carousel: Ảnh dashboard -->
+              <div
+                class="jos carousel-img overflow-hidden rounded-2xl bg-black"
+                data-jos_animation="zoom"
+              >
+                <img
+                  src="images/hero-dashboard.jpg"
+                  alt="hero-dashboard"
+                  width="1296"
+                  height="640"
+                  class="h-auto w-full"
+                />
+              </div>
+
+              <!-- Carousel: Đường kẻ ngang -->
+              <div class="h-[1px] w-full bg-[#DBD6CF] my-20"></div>
+
+              <!-- Carousel: Dòng giới thiệu thương hiệu -->
+              <div class="jos mx-auto max-w-[715px] text-center mb-16">
+                <p class="text-lg">
+                  Companies of all sizes trust us to find AI SaaS critical to
+                  their growth and innovation
+                </p>
+              </div>
+
+              <!-- Carousel: Slider logo thương hiệu (Swiper) -->
+              <div class="jos swiper brand-slider" data-jos_animation="fade">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-1.png"
+                      alt="brand-1"
+                      width="180"
+                      height="38"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-2.png"
+                      alt="brand-2"
+                      width="183"
+                      height="35"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-3.png"
+                      alt="brand-3"
+                      width="172"
+                      height="35"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-4.png"
+                      alt="brand-4"
+                      width="175"
+                      height="30"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-5.png"
+                      alt="brand-5"
+                      width="168"
+                      height="36"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-1.png"
+                      alt="brand-1"
+                      width="180"
+                      height="38"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-2.png"
+                      alt="brand-2"
+                      width="183"
+                      height="35"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-3.png"
+                      alt="brand-3"
+                      width="172"
+                      height="35"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-4.png"
+                      alt="brand-4"
+                      width="175"
+                      height="30"
+                      class="max-w-full"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="images/brand-5.png"
+                      alt="brand-5"
+                      width="168"
+                      height="36"
+                      class="max-w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel: Hình tròn gradient cam xoay 1 -->
+            <div
+              class="orange-gradient-1 absolute -right-[150px] top-[370px] -z-[1] h-[500px] w-[500px] animate-spin rounded-[500px]"
+            ></div>
+            <!-- Carousel: Hình tròn gradient cam xoay 2 -->
+            <div
+              class="orange-gradient-2 absolute right-[57px] top-[620px] -z-[1] h-[450px] w-[450px] animate-spin rounded-[450px]"
+            ></div>
+          </div>
+        </section>
+        <!-- HẾT CAROUSEL  -->
+
+        <!-- -----------------------------------------------------
+                 MAIN > 2. FEATURES: Các tính năng nổi bật
+                 ----------------------------------------------------- -->
+        <section id="section-features" class="bg-white py-24 sm:py-32">
+          <div class="global-container wow">
+            <div class="animate__animated animate__fadeInUp">
+              <h2
+                class="mb-16 max-w-[720px] text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
+              >
+                Core features that<br class="hidden sm:block" />
+                make it valuable
+              </h2>
+            </div>
+
+            <div
+              class="grid overflow-hidden rounded-[10px] border border-black md:grid-cols-2 lg:grid-cols-4 animate__animated animate__fadeInUp wow"
+            >
+              <!-- Feature: Resource Flexibility -->
+              <div
+                class="group flex min-h-[365px] flex-col bg-white p-7 text-black transition-colors duration-300 hover:bg-black hover:text-white sm:p-8"
+              >
+                <div
+                  class="mb-8 flex h-16 w-16 items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span class="relative block h-[70px] w-[70px]">
+                    <img
+                      src="images/service-icon-black-1.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/service-icon-orange-1.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </div>
+                <h3
+                  class="mb-3 text-[25px] leading-tight tracking-[-1px] group-hover:text-white"
+                >
+                  Resource Flexibility
+                </h3>
+                <p class="max-w-[245px] text-[17px] leading-[1.65]">
+                  This is an excellent option for people &amp; small businesses
+                  who are starting out.
+                </p>
+                <a
+                  href="#"
+                  class="group/arrow mt-auto inline-flex w-fit"
+                  aria-label="Learn more about Resource Flexibility"
+                >
+                  <span
+                    class="relative block h-[30px] w-[30px]"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="images/arrow-right-black.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/arrow-right-orange.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </a>
+              </div>
+
+              <!-- Feature: Managed Services -->
+              <div
+                class="group flex min-h-[365px] flex-col border-t border-black bg-white p-7 text-black transition-colors duration-300 hover:bg-black hover:text-white md:border-t-0 md:border-l sm:p-8"
+              >
+                <div
+                  class="mb-8 flex h-16 w-16 items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span class="relative block h-[70px] w-[70px]">
+                    <img
+                      src="images/service-icon-black-2.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/service-icon-orange-2.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </div>
+                <h3
+                  class="mb-3 text-[25px] leading-tight tracking-[-1px] group-hover:text-white"
+                >
+                  Managed Services
+                </h3>
+                <p class="max-w-[245px] text-[17px] leading-[1.65]">
+                  This is an excellent option for people &amp; small businesses
+                  who are starting out.
+                </p>
+                <a
+                  href="#"
+                  class="group/arrow mt-auto inline-flex w-fit"
+                  aria-label="Learn more about Managed Services"
+                >
+                  <span
+                    class="relative block h-[30px] w-[30px]"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="images/arrow-right-black.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/arrow-right-orange.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </a>
+              </div>
+
+              <!-- Feature: Web-Based Access -->
+              <div
+                class="group flex min-h-[365px] flex-col border-t border-black bg-white p-7 text-black transition-colors duration-300 hover:bg-black hover:text-white md:border-l sm:p-8 lg:border-t-0"
+              >
+                <div
+                  class="mb-8 flex h-16 w-16 items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span class="relative block h-[70px] w-[70px]">
+                    <img
+                      src="images/service-icon-black-3.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/service-icon-orange-3.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </div>
+                <h3
+                  class="mb-3 text-[25px] leading-tight tracking-[-1px] group-hover:text-white"
+                >
+                  Web-Based Access
+                </h3>
+                <p class="max-w-[245px] text-[17px] leading-[1.65]">
+                  This is an excellent option for people &amp; small businesses
+                  who are starting out.
+                </p>
+                <a
+                  href="#"
+                  class="group/arrow mt-auto inline-flex w-fit"
+                  aria-label="Learn more about Web-Based Access"
+                >
+                  <span
+                    class="relative block h-[30px] w-[30px]"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="images/arrow-right-black.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/arrow-right-orange.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </a>
+              </div>
+
+              <!-- Feature: Resource Flexibility -->
+              <div
+                class="group flex min-h-[365px] flex-col border-t border-black bg-white p-7 text-black transition-colors duration-300 hover:bg-black hover:text-white md:border-l sm:p-8 lg:border-t-0"
+              >
+                <div
+                  class="mb-8 flex h-16 w-16 items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span class="relative block h-[70px] w-[70px]">
+                    <img
+                      src="images/service-icon-black-4.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/service-icon-orange-4.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </div>
+                <h3
+                  class="mb-3 text-[25px] leading-tight tracking-[-1px] group-hover:text-white"
+                >
+                  Resource Flexibility
+                </h3>
+                <p class="max-w-[245px] text-[17px] leading-[1.65]">
+                  This is an excellent option for people &amp; small businesses
+                  who are starting out.
+                </p>
+                <a
+                  href="#"
+                  class="group/arrow mt-auto inline-flex w-fit"
+                  aria-label="Learn more about Resource Flexibility"
+                >
+                  <span
+                    class="relative block h-[30px] w-[30px]"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="images/arrow-right-black.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                    />
+                    <img
+                      src="images/arrow-right-orange.svg"
+                      alt=""
+                      class="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- HẾT FEATURES -->
+
+        <!-- -----------------------------------------------------
+             MAIN > 3. ACCESSIBLE: Tiếp cận với nhiều đối tượng hơn
+             ----------------------------------------------------- -->
+        <section id="section-accessible" class="bg-white py-24 sm:py-32">
+          <div class="global-container">
+            <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+              <div
+                class="overflow-hidden rounded-[14px] bg-[#191919] animate__animated animate__fadeInRight wow"
+              >
+                <img
+                  src="images/content-image-1.jpg"
+                  alt="Analytics dashboard showing usage across different platforms"
+                  width="526"
+                  height="450"
+                  class="h-auto w-full"
+                />
+              </div>
+
+              <div
+                class="animate__animated animate__fadeInLeft wow jos max-w-[650px]"
+                data-jos_animation="fade"
+              >
+                <h2
+                  class="mb-10 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
+                >
+                  Accessible to a<br class="hidden sm:block" />
+                  wider audience
+                </h2>
+                <div
+                  class="space-y-8 text-[18px] leading-[1.65] sm:text-[20px]"
+                >
+                  <p>
+                    Advanced AI capabilities accessible to a broader audience,
+                    including small &amp; medium-sized businesses and
+                    individuals who may not have the resources or expertise to
+                    develop.
+                  </p>
+                  <p>
+                    Advanced AI capabilities accessible to a broader audience,
+                    including small &amp; medium-sized businesses and
+                    individuals who may not have the resources or expertise to
+                    develop.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- HẾT ACCESSIBLE -->
+      </main>
+      <!-- HẾT MAIN  -->
     </div>
 
     <!-- Thư viện Swiper -->
@@ -320,6 +816,10 @@
 
     <!-- JS chính: hiệu ứng cuộn, slider logo -->
     <script src="main.js"></script>
-</body>
-
+    <!-- Thư viện WOW.js (CDN) - thư viện hiệu ứng cuộn, fade, zoom, slide -->
+    <script src="./libs/wow/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </body>
 </html>
