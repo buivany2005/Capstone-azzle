@@ -199,3 +199,51 @@
   opacity: 1;
   transform: none;
 }
+
+/* =========================================================
+   6. POPUP VIDEO (nút Play ở phần Funfact)
+   ========================================================= */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal__inner {
+  position: relative;
+  width: 960px;
+  aspect-ratio: 16 / 9;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.video-modal.is-open .video-modal__inner {
+  transform: scale(1);
+}
+
+.video-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  font-size: 36px;
+  line-height: 1;
+  color: #fff;
+}

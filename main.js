@@ -2,6 +2,8 @@
    MAIN.JS - Toàn bộ hiệu ứng của trang Home
    1. Hiệu ứng xuất hiện khi cuộn (thay cho JOS)
    2. Slider logo thương hiệu (Swiper)
+   3. Bộ đếm số (countup)
+   4. Popup video YouTube
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -52,6 +54,94 @@ document.addEventListener('DOMContentLoaded', function () {
         delay: 2000,
         disableOnInteraction: false,
       },
+    });
+  }
+   /* -------------------------------------------------------
+     3. BỘ ĐẾM SỐ: đếm từ 0 lên số trong data-countup-number
+     khi cuộn tới phần Funfact
+     ------------------------------------------------------- */
+  var counters = document.querySelectorAll('[data-countup-number]');
+
+  function runCounter(el) {
+    var target = parseInt(el.getAttribute('data-countup-number'), 10);
+    var duration = 2000;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      // Chậm dần về cuối (ease-out)
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            runCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach(function (el) {
+      el.textContent = '0';
+      counterObserver.observe(el);
+    });
+  }
+    /* -------------------------------------------------------
+     4. POPUP VIDEO: bấm nút Play mở video YouTube,
+     bấm nền / dấu × / phím Esc để đóng
+     ------------------------------------------------------- */
+  var videoModal = document.getElementById('video-modal');
+  var videoFrame = videoModal ? videoModal.querySelector('iframe') : null;
+
+  function getYoutubeId(url) {
+    var match = url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+    return match ? match[1] : null;
+  }
+
+  function openVideo(url) {
+    var id = getYoutubeId(url);
+    if (!id) {
+      window.open(url, '_blank');
+      return;
+    }
+    videoFrame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+    videoModal.classList.add('is-open');
+    videoModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeVideo() {
+    videoModal.classList.remove('is-open');
+    videoModal.setAttribute('aria-hidden', 'true');
+    videoFrame.src = '';
+  }
+
+  if (videoModal) {
+    document.querySelectorAll('[data-fslightbox]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        openVideo(link.getAttribute('href'));
+      });
+    });
+
+    videoModal.addEventListener('click', function (event) {
+      if (event.target === videoModal || event.target.closest('.video-modal__close')) {
+        closeVideo();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && videoModal.classList.contains('is-open')) closeVideo();
     });
   }
 });
