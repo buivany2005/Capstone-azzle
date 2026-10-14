@@ -807,8 +807,185 @@
           </div>
         </section>
         <!-- HẾT ACCESSIBLE -->
+        <!-- -----------------------------------------------------
+                 MAIN > 4. NỘI DUNG 2 (Providing quick deploy solutions):
+                 chữ + danh sách check bên trái, ảnh bên phải
+                 ----------------------------------------------------- -->
+        <section id="content-section-2">
+          <div class="pb-[150px]">
+            <div class="global-container">
+              <div
+                class="grid items-center grid-cols-[minmax(0,_1.2fr)_1fr] gap-32"
+              >
+                <!-- Nội dung 2: Ảnh -->
+                <div
+                  class="jos order-2 overflow-hidden rounded-md"
+                  data-jos_animation="fade-left"
+                >
+                  <img
+                    src="images/content-image-2.jpg"
+                    alt="content-image-2"
+                    width="526"
+                    height="450"
+                    class="h-auto w-full"
+                  />
+                </div>
+                <!-- Nội dung 2: Chữ + danh sách check -->
+                <div class="jos order-1" data-jos_animation="fade-right">
+                  <div class="mb-6">
+                    <h2>Providing quick deploy solutions</h2>
+                  </div>
+                  <div class="leading-[1.4] text-[21px]">
+                    <p class="mb-7 last:mb-0">
+                      Our AI SaaS solutions can be quickly deployed, enabling
+                      users to start benefiting from AI capabilities without
+                      lengthy setup and development times in fast-paced
+                      industries.
+                    </p>
+                    <ul
+                      class="flex flex-col gap-y-5 font-dmSans leading-tight tracking-tighter text-black mt-12 text-[28px]"
+                    >
+                      <li class="flex items-start gap-x-3">
+                        <div class="mt-[2.5px] h-[30px] w-[30px]">
+                          <img
+                            src="images/check-circle.svg"
+                            alt="check-circle"
+                            width="30"
+                            height="30"
+                            class="h-full w-full"
+                          />
+                        </div>
+                        Ready-to-use AI capabilities system
+                      </li>
+                      <li class="flex items-start gap-x-3">
+                        <div class="mt-[2.5px] h-[30px] w-[30px]">
+                          <img
+                            src="images/check-circle.svg"
+                            alt="check-circle"
+                            width="30"
+                            height="30"
+                            class="h-full w-full"
+                          />
+                        </div>
+                        Users can quickly integrate AI features
+                      </li>
+                      <li class="flex items-start gap-x-3">
+                        <div class="mt-[2.5px] h-[30px] w-[30px]">
+                          <img
+                            src="images/check-circle.svg"
+                            alt="check-circle"
+                            width="30"
+                            height="30"
+                            class="h-full w-full"
+                          />
+                        </div>
+                        Time savings translate to cost savings
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ------------------- HẾT NỘI DUNG 2 ------------------- -->
+
+        <!-- -----------------------------------------------------
+                 MAIN > 5. FUNFACT: ảnh + nút Play video (popup),
+                 bộ đếm số 92% / 75% chạy khi cuộn tới
+                 ----------------------------------------------------- -->
+        <section id="funfact-section">
+          <div class="mx-auto max-w-[1500px] px-5">
+            <div
+              class="jos grid overflow-hidden bg-black rounded-[50px] grid-cols-[1fr_minmax(800px,_1fr)]"
+            >
+              <!-- Funfact: Ảnh + nút Play -->
+              <div class="relative overflow-hidden rounded-[50px]">
+                <img
+                  src="images/funfact-image.jpg"
+                  alt="funfact-image"
+                  width="721"
+                  height="784"
+                  class="w-full object-cover object-center h-full"
+                />
+                <!-- Nút Play: bấm mở popup video YouTube -->
+                <a
+                  data-fslightbox="gallery"
+                  href="https://www.youtube.com/watch?v=3nQNiWdeH2Q"
+                  class="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2"
+                >
+                  <div
+                    class="relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-[3px] border-black text-lg font-bold backdrop-blur-[2px] transition-all duration-300 hover:bg-colorOrangyRed hover:text-white"
+                  >
+                    Play
+                    <!-- Vòng tròn lan toả (ping) -->
+                    <div
+                      class="absolute -z-[1] h-[110%] w-[110%] animate-[ping_1.5s_ease-in-out_infinite] rounded-full bg-gray-600 opacity-30"
+                    ></div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Funfact: Chữ + bộ đếm số -->
+              <div class="self-center px-10 py-32 pl-16 pr-28">
+                <div class="mb-6">
+                  <h2 class="text-white">AI-powered that streamline tasks</h2>
+                </div>
+                <div class="text-left leading-[1.4] text-white text-[21px]">
+                  <p class="mb-7 last:mb-0">
+                    As your business grows or your AI SaaS needs change, you can
+                    easily adjust your subscription level to match those needs.
+                    This flexibility ensures that AI remains an asset.
+                  </p>
+                </div>
+                <!-- Đường kẻ ngang -->
+                <div class="my-14 h-[1px] w-full bg-colorCodGray"></div>
+                <!-- Bộ đếm số (countup) -->
+                <ul
+                  class="flex gap-y-8 flex-row justify-normal text-left gap-x-20"
+                >
+                  <li>
+                    <h3
+                      class="text-colorOrangyRed text-[120px]"
+                      data-module="countup"
+                    >
+                      <span class="start-number" data-countup-number="92"
+                        >92</span
+                      >%
+                    </h3>
+                    <span class="block font-normal text-white text-[21px]">
+                      Customer service inquiries
+                    </span>
+                  </li>
+                  <li>
+                    <h3
+                      class="text-colorOrangyRed text-[120px]"
+                      data-module="countup"
+                    >
+                      <span class="start-number" data-countup-number="75"
+                        >75</span
+                      >%
+                    </h3>
+                    <span class="block font-normal text-white text-[21px]">
+                      Using financial institutions
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ------------------- HẾT FUNFACT ------------------- -->
       </main>
       <!-- HẾT MAIN  -->
+    </div>
+    <!-- Popup video (JS mở khi bấm nút Play ở phần Funfact) -->
+    <div class="video-modal" id="video-modal" aria-hidden="true">
+        <div class="video-modal__inner">
+            <button class="video-modal__close" type="button" aria-label="Close video">&times;</button>
+            <iframe src="" title="Video" allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
     </div>
 
     <!-- Thư viện Swiper -->
