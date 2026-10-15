@@ -901,16 +901,8 @@
                  MAIN > 5. FUNFACT: ảnh + nút Play video (popup),
                  bộ đếm số 92% / 75% chạy khi cuộn tới
                  ----------------------------------------------------- -->
-        <section id="funfact-section" class="relative">
-          <div
-            class="orange-gradient-1 pointer-events-none absolute -bottom-[350px] -left-[250px] z-0 h-[500px] w-[500px] animate-spin rounded-full"
-            aria-hidden="true"
-          ></div>
-          <div
-            class="orange-gradient-2 pointer-events-none absolute -bottom-[400px] left-[60px] z-0 h-[450px] w-[450px] animate-spin rounded-full"
-            aria-hidden="true"
-          ></div>
-          <div class="relative z-[1] mx-auto max-w-[1500px] px-5">
+        <section id="funfact-section">
+          <div class="mx-auto max-w-[1500px] px-5">
             <div
               class="jos grid overflow-hidden bg-black rounded-[50px] grid-cols-[1fr_minmax(800px,_1fr)]"
             >
@@ -1245,21 +1237,11 @@
     </div>
     <!-- Popup video (JS mở khi bấm nút Play ở phần Funfact) -->
     <div class="video-modal" id="video-modal" aria-hidden="true">
-      <div class="video-modal__inner">
-        <button
-          class="video-modal__close"
-          type="button"
-          aria-label="Close video"
-        >
-          &times;
-        </button>
-        <iframe
-          src=""
-          title="Video"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
+        <div class="video-modal__inner">
+            <button class="video-modal__close" type="button" aria-label="Close video">&times;</button>
+            <iframe src="" title="Video" allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
     </div>
 
     <!-- Thư viện Swiper -->
