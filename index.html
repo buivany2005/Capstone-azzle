@@ -87,7 +87,7 @@
     </style>
 
     <!-- CSS riêng (nút, header, menu, carousel, hiệu ứng cuộn) -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
@@ -765,7 +765,11 @@
           <div class="global-container">
             <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
               <div
-                class="overflow-hidden rounded-[14px] bg-[#191919] animate__animated animate__fadeInRight wow"
+                class="jos overflow-hidden rounded-[14px] bg-[#191919]"
+                data-jos_animation="fade-right"
+                data-jos_once="1"
+                data-jos_counter="1"
+                data-jos_scrolldirection="down"
               >
                 <img
                   src="images/content-image-1.jpg"
@@ -777,8 +781,11 @@
               </div>
 
               <div
-                class="animate__animated animate__fadeInLeft wow jos max-w-[650px]"
-                data-jos_animation="fade"
+                class="jos max-w-[650px]"
+                data-jos_animation="fade-left"
+                data-jos_once="1"
+                data-jos_counter="1"
+                data-jos_scrolldirection="down"
               >
                 <h2
                   class="mb-10 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
@@ -807,15 +814,459 @@
           </div>
         </section>
         <!-- HẾT ACCESSIBLE -->
+        <!-- -----------------------------------------------------
+                 MAIN > 4. NỘI DUNG 2 (Providing quick deploy solutions):
+                 chữ + danh sách check bên trái, ảnh bên phải
+                 ----------------------------------------------------- -->
+        <section id="content-section-2">
+          <div class="pb-[150px]">
+            <div class="global-container">
+              <div
+                class="grid items-center grid-cols-[minmax(0,_1.2fr)_1fr] gap-32"
+              >
+                <!-- Nội dung 2: Ảnh -->
+                <div
+                  class="jos order-2 overflow-hidden rounded-md"
+                  data-jos_animation="fade-left"
+                >
+                  <img
+                    src="images/content-image-2.jpg"
+                    alt="content-image-2"
+                    width="526"
+                    height="450"
+                    class="h-auto w-full"
+                  />
+                </div>
+                <!-- Nội dung 2: Chữ + danh sách check -->
+                <div class="jos order-1" data-jos_animation="fade-right">
+                  <div class="mb-6">
+                    <h2>Providing quick deploy solutions</h2>
+                  </div>
+                  <div class="leading-[1.4] text-[21px]">
+                    <p class="mb-7 last:mb-0">
+                      Our AI SaaS solutions can be quickly deployed, enabling
+                      users to start benefiting from AI capabilities without
+                      lengthy setup and development times in fast-paced
+                      industries.
+                    </p>
+                    <ul
+                      class="flex flex-col gap-y-5 font-dmSans leading-tight tracking-tighter text-black mt-12 text-[28px]"
+                    >
+                      <li class="flex items-start gap-x-3">
+                        <div class="mt-[2.5px] h-[30px] w-[30px]">
+                          <img
+                            src="images/check-circle.svg"
+                            alt="check-circle"
+                            width="30"
+                            height="30"
+                            class="h-full w-full"
+                          />
+                        </div>
+                        Ready-to-use AI capabilities system
+                      </li>
+                      <li class="flex items-start gap-x-3">
+                        <div class="mt-[2.5px] h-[30px] w-[30px]">
+                          <img
+                            src="images/check-circle.svg"
+                            alt="check-circle"
+                            width="30"
+                            height="30"
+                            class="h-full w-full"
+                          />
+                        </div>
+                        Users can quickly integrate AI features
+                      </li>
+                      <li class="flex items-start gap-x-3">
+                        <div class="mt-[2.5px] h-[30px] w-[30px]">
+                          <img
+                            src="images/check-circle.svg"
+                            alt="check-circle"
+                            width="30"
+                            height="30"
+                            class="h-full w-full"
+                          />
+                        </div>
+                        Time savings translate to cost savings
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ------------------- HẾT NỘI DUNG 2 ------------------- -->
+
+        <!-- -----------------------------------------------------
+                 MAIN > 5. FUNFACT: ảnh + nút Play video (popup),
+                 bộ đếm số 92% / 75% chạy khi cuộn tới
+                 ----------------------------------------------------- -->
+        <section id="funfact-section" class="relative">
+          <div
+            class="orange-gradient-1 pointer-events-none absolute -bottom-[350px] -left-[250px] z-0 h-[500px] w-[500px] animate-spin rounded-full"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="orange-gradient-2 pointer-events-none absolute -bottom-[400px] left-[60px] z-0 h-[450px] w-[450px] animate-spin rounded-full"
+            aria-hidden="true"
+          ></div>
+          <div class="relative z-[1] mx-auto max-w-[1500px] px-5">
+            <div
+              class="jos grid overflow-hidden bg-black rounded-[50px] grid-cols-[1fr_minmax(800px,_1fr)]"
+            >
+              <!-- Funfact: Ảnh + nút Play -->
+              <div class="relative overflow-hidden rounded-[50px]">
+                <img
+                  src="images/funfact-image.jpg"
+                  alt="funfact-image"
+                  width="721"
+                  height="784"
+                  class="w-full object-cover object-center h-full"
+                />
+                <!-- Nút Play: bấm mở popup video YouTube -->
+                <a
+                  data-fslightbox="gallery"
+                  href="https://www.youtube.com/watch?v=3nQNiWdeH2Q"
+                  class="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2"
+                >
+                  <div
+                    class="relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-[3px] border-black text-lg font-bold backdrop-blur-[2px] transition-all duration-300 hover:bg-colorOrangyRed hover:text-white"
+                  >
+                    Play
+                    <!-- Vòng tròn lan toả (ping) -->
+                    <div
+                      class="absolute -z-[1] h-[110%] w-[110%] animate-[ping_1.5s_ease-in-out_infinite] rounded-full bg-gray-600 opacity-30"
+                    ></div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Funfact: Chữ + bộ đếm số -->
+              <div class="self-center px-10 py-32 pl-16 pr-28">
+                <div class="mb-6">
+                  <h2 class="text-white">AI-powered that streamline tasks</h2>
+                </div>
+                <div class="text-left leading-[1.4] text-white text-[21px]">
+                  <p class="mb-7 last:mb-0">
+                    As your business grows or your AI SaaS needs change, you can
+                    easily adjust your subscription level to match those needs.
+                    This flexibility ensures that AI remains an asset.
+                  </p>
+                </div>
+                <!-- Đường kẻ ngang -->
+                <div class="my-14 h-[1px] w-full bg-colorCodGray"></div>
+                <!-- Bộ đếm số (countup) -->
+                <ul
+                  class="flex gap-y-8 flex-row justify-normal text-left gap-x-20"
+                >
+                  <li>
+                    <h3
+                      class="text-colorOrangyRed text-[120px]"
+                      data-module="countup"
+                    >
+                      <span class="start-number" data-countup-number="92"
+                        >92</span
+                      >%
+                    </h3>
+                    <span class="block font-normal text-white text-[21px]">
+                      Customer service inquiries
+                    </span>
+                  </li>
+                  <li>
+                    <h3
+                      class="text-colorOrangyRed text-[120px]"
+                      data-module="countup"
+                    >
+                      <span class="start-number" data-countup-number="75"
+                        >75</span
+                      >%
+                    </h3>
+                    <span class="block font-normal text-white text-[21px]">
+                      Using financial institutions
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ------------------- HẾT FUNFACT ------------------- -->
+
+        <!-- -----------------------------------------------------
+             MAIN > 6. COST: Bảng giá và chuyển đổi chu kỳ thanh toán
+             ----------------------------------------------------- -->
+        <section id="section-cost" class="cost-section relative py-24 sm:py-32">
+          <div class="global-container relative z-[1]">
+            <div class="mx-auto mb-16 max-w-[760px] text-center">
+              <h2
+                class="jos mb-10 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[72px]"
+                data-jos_once="1"
+                data-jos_animation="fade-up"
+                data-jos_counter="1"
+                data-jos_scrolldirection="down"
+              >
+                Cost-effectively<br class="hidden sm:block" />
+                build any software
+              </h2>
+
+              <div
+                class="jos mx-auto inline-flex rounded-full border-2 border-black p-[2px]"
+                role="group"
+                aria-label="Billing frequency"
+                data-jos_animation="fade"
+                data-jos_once="1"
+                data-jos_counter="1"
+                data-jos_scrolldirection="down"
+              >
+                <button
+                  class="billing-toggle is-active rounded-full px-8 py-3 text-base font-bold transition-colors"
+                  type="button"
+                  data-billing="monthly"
+                  aria-pressed="true"
+                >
+                  Monthly
+                </button>
+                <button
+                  class="billing-toggle rounded-full px-8 py-3 text-base font-bold transition-colors"
+                  type="button"
+                  data-billing="annually"
+                  aria-pressed="false"
+                >
+                  Annually
+                </button>
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <div
+                class="group pricing-card jos flex flex-col rounded-[10px] bg-colorLinenRuffle p-8 sm:p-9"
+                data-jos_animation="flip"
+                data-jos_delay="0"
+              >
+                <div>
+                  <h3 class="mb-2 text-[24px] tracking-[-1px]">Beginner</h3>
+                  <p class="text-base">Up to 10 members</p>
+                </div>
+                <div class="my-5 h-px w-full bg-white/30"></div>
+                <p class="mb-4 flex flex-wrap items-baseline gap-x-1">
+                  <span
+                    class="pricing-price text-[64px] font-bold leading-none tracking-[-3px] sm:text-[72px]"
+                    data-monthly="25"
+                    data-annually="240"
+                    aria-live="polite"
+                    >$25</span
+                  >
+                  <span class="billing-cadence text-base font-semibold"
+                    >/Per month</span
+                  >
+                </p>
+                <p class="mb-8 text-base leading-relaxed">
+                  This is an excellent option for people &amp; small businesses
+                  who are starting out.
+                </p>
+                <a
+                  href="#"
+                  class="button mt-auto inline-flex min-h-[54px] w-full items-center justify-center rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-sm font-bold text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                  >Choose the plan</a
+                >
+              </div>
+
+              <div
+                class="group pricing-card jos flex flex-col rounded-[10px] bg-colorLinenRuffle p-8 sm:p-9"
+                data-jos_animation="flip"
+                data-jos_delay="0.2"
+              >
+                <div>
+                  <h3 class="mb-2 text-[24px] tracking-[-1px]">Starter</h3>
+                  <p class="text-base">Up to 50 members</p>
+                </div>
+                <div class="my-5 h-px w-full bg-black/10"></div>
+                <p class="mb-4 flex flex-wrap items-baseline gap-x-1">
+                  <span
+                    class="pricing-price text-[64px] font-bold leading-none tracking-[-3px] sm:text-[72px]"
+                    data-monthly="89"
+                    data-annually="960"
+                    aria-live="polite"
+                    >$89</span
+                  >
+                  <span class="billing-cadence text-base font-semibold"
+                    >/Per month</span
+                  >
+                </p>
+                <p class="mb-8 text-base leading-relaxed">
+                  This plan is suitable for e-commerce stores as well as
+                  professional blogs.
+                </p>
+                <a
+                  href="#"
+                  class="button mt-auto inline-flex min-h-[54px] w-full items-center justify-center rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-sm font-bold text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                  >Choose the plan</a
+                >
+              </div>
+
+              <div
+                class="group pricing-card jos flex flex-col rounded-[10px] bg-colorLinenRuffle p-8 sm:p-9 md:col-span-2 lg:col-span-1"
+                data-jos_animation="flip"
+                data-jos_delay="0.4"
+              >
+                <div>
+                  <h3 class="mb-2 text-[24px] tracking-[-1px]">Pro</h3>
+                  <p class="text-base">Up to 100 members</p>
+                </div>
+                <div class="my-5 h-px w-full bg-black/10"></div>
+                <p class="mb-4 flex flex-wrap items-baseline gap-x-1">
+                  <span
+                    class="pricing-price text-[64px] font-bold leading-none tracking-[-3px] sm:text-[72px]"
+                    data-monthly="199"
+                    data-annually="1800"
+                    aria-live="polite"
+                    >$199</span
+                  >
+                  <span class="billing-cadence text-base font-semibold"
+                    >/Per month</span
+                  >
+                </p>
+                <p class="mb-8 text-base leading-relaxed">
+                  Ideal for handling complicated projects, enterprise-level
+                  projects, and websites.
+                </p>
+                <a
+                  href="#"
+                  class="button mt-auto inline-flex min-h-[54px] w-full items-center justify-center rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-sm font-bold text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                  >Choose the plan</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ---------------------- HẾT COST --------------------- -->
+
+        <!-- -----------------------------------------------------
+             MAIN > 7. FREELY: FAQ và liên hệ
+             ----------------------------------------------------- -->
+        <section id="section-freely" class="bg-white py-24 sm:py-32">
+          <div class="global-container">
+            <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-32">
+              <div
+                class="flex flex-col max-w-[650px] jos"
+                data-jos_animation="fade-right"
+                data-jos_once="1"
+                data-jos_counter="1"
+                data-jos_scrolldirection="down"
+              >
+                <h2
+                  class="mb-8 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
+                >
+                  Freely ask us for more information
+                </h2>
+                <p class="mb-10 text-[18px] leading-[1.65] sm:text-[20px]">
+                  Our AI SaaS solutions can be quickly deployed, enabling users
+                  to start benefiting from AI capabilities without lengthy setup
+                  and development times in fast-paced industries.
+                </p>
+                <a
+                  class="button inline-flex self-start justify-start rounded-[50px] border-2 border-black bg-black py-4 text-left text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                  href="#faq-list"
+                  >Ask you questions</a
+                >
+              </div>
+
+              <div
+                id="faq-list"
+                class="faq-list jos"
+                data-jos_animation="fade-left"
+                data-jos_once="1"
+                data-jos_counter="1"
+                data-jos_scrolldirection="down"
+              >
+                <div class="faq-item">
+                  <div
+                    class="faq-question"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="faq-answer-start"
+                  >
+                    <span>How do I start AI SaaS?</span>
+                  </div>
+                  <div class="faq-answer" id="faq-answer-start" hidden>
+                    <p>
+                      Go to our official website and create an account. You'll
+                      need to provide some basic information and agree to our
+                      terms and conditions.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="faq-item is-open">
+                  <div
+                    class="faq-question"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="true"
+                    aria-controls="faq-answer-customize"
+                  >
+                    <span>Can I customize AI SaaS solutions?</span>
+                  </div>
+                  <div class="faq-answer" id="faq-answer-customize">
+                    <p>
+                      Go to the our official website and require users to create
+                      an account. You'll need to provide some basic information
+                      and agree to our terms and conditions.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <div
+                    class="faq-question"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="faq-answer-benefits"
+                  >
+                    <span>How can AI benefit my business?</span>
+                  </div>
+                  <div class="faq-answer" id="faq-answer-benefits" hidden>
+                    <p>
+                      Go to the our official website and require users to create
+                      an account. You'll need to provide some basic information
+                      and agree to our terms and conditions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- --------------------- HẾT FREELY -------------------- -->
       </main>
       <!-- HẾT MAIN  -->
+    </div>
+    <!-- Popup video (JS mở khi bấm nút Play ở phần Funfact) -->
+    <div class="video-modal" id="video-modal" aria-hidden="true">
+      <div class="video-modal__inner">
+        <button
+          class="video-modal__close"
+          type="button"
+          aria-label="Close video"
+        >
+          &times;
+        </button>
+        <iframe
+          src=""
+          title="Video"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
 
     <!-- Thư viện Swiper -->
     <script src="libs/swiper/swiper-bundle.min.js"></script>
 
     <!-- JS chính: hiệu ứng cuộn, slider logo -->
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
     <!-- Thư viện WOW.js (CDN) - thư viện hiệu ứng cuộn, fade, zoom, slide -->
     <script src="./libs/wow/wow.min.js"></script>
     <script>

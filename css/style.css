@@ -172,11 +172,17 @@
    ========================================================= */
 .jos {
   opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease var(--jos-delay, 0s),
+    transform 0.8s ease var(--jos-delay, 0s);
 }
 
 .jos.slide-from-bottom {
   transform: translateY(60px);
+}
+
+.jos[data-jos_animation='fade-up'] {
+  transform: translateY(40px);
 }
 
 .jos[data-jos_animation='zoom'] {
@@ -199,3 +205,174 @@
   opacity: 1;
   transform: none;
 }
+<<<<<<< Updated upstream:style.css
+=======
+
+/* =========================================================
+   6. POPUP VIDEO (nút Play ở phần Funfact)
+   ========================================================= */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal__inner {
+  position: relative;
+  width: 960px;
+  aspect-ratio: 16 / 9;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.video-modal.is-open .video-modal__inner {
+  transform: scale(1);
+}
+
+.video-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  font-size: 36px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* =========================================================
+   7. BẢNG GIÁ - điểm nhấn gradient và trạng thái chu kỳ
+   ========================================================= */
+.billing-toggle {
+  min-width: 132px;
+}
+
+.billing-toggle.is-active {
+  background-color: #000;
+  color: #fff;
+}
+
+.pricing-card {
+  min-height: 390px;
+  transition:
+    opacity 0.8s ease var(--jos-delay, 0s),
+    transform 0.8s ease var(--jos-delay, 0s),
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.pricing-card.billing-flip-once {
+  animation: pricing-card-flip 600ms ease-in-out;
+  animation-delay: 0s;
+  backface-visibility: hidden;
+  transition-delay: 0s;
+}
+
+@keyframes pricing-card-flip {
+  0% {
+    transform: perspective(1000px) rotateY(0);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.pricing-card:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.pricing-card:hover h3 {
+  color: #fff;
+}
+
+.pricing-card:hover .billing-cadence,
+.pricing-card:hover .pricing-price {
+  color: #fff;
+}
+
+.pricing-card:hover a {
+  border-color: #fe330a;
+  color: #fff;
+}
+
+.pricing-card:hover a:hover {
+  background-color: #fe330a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card.billing-flip-once {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   8. FAQ - native, keyboard-accessible disclosure items
+   ========================================================= */
+.faq-item {
+  border-bottom: 1px solid #dbd6cf;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  color: #000;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  outline-offset: 4px;
+}
+
+.faq-question::after {
+  flex: 0 0 auto;
+  content: "+";
+  font-family: Inter, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item.is-open .faq-question::after {
+  content: "\00d7";
+}
+
+.faq-answer {
+  padding: 0 34px 24px 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.faq-answer[hidden] {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .faq-question {
+    font-size: 21px;
+  }
+}
+>>>>>>> Stashed changes:css/style.css
