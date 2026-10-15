@@ -24,7 +24,7 @@
 }
 
 .button::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -181,23 +181,23 @@
   transform: translateY(60px);
 }
 
-.jos[data-jos_animation='fade-up'] {
+.jos[data-jos_animation="fade-up"] {
   transform: translateY(40px);
 }
 
-.jos[data-jos_animation='zoom'] {
+.jos[data-jos_animation="zoom"] {
   transform: scale(0.8);
 }
 
-.jos[data-jos_animation='fade-left'] {
+.jos[data-jos_animation="fade-left"] {
   transform: translateX(-80px);
 }
 
-.jos[data-jos_animation='fade-right'] {
+.jos[data-jos_animation="fade-right"] {
   transform: translateX(80px);
 }
 
-.jos[data-jos_animation='flip'] {
+.jos[data-jos_animation="flip"] {
   transform: perspective(1000px) rotateY(90deg);
 }
 
@@ -205,8 +205,6 @@
   opacity: 1;
   transform: none;
 }
-<<<<<<< Updated upstream:style.css
-=======
 
 /* =========================================================
    6. POPUP VIDEO (nút Play ở phần Funfact)
@@ -375,4 +373,3 @@
     font-size: 21px;
   }
 }
->>>>>>> Stashed changes:css/style.css
