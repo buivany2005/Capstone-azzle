@@ -24,7 +24,7 @@
 }
 
 .button::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -172,26 +172,32 @@
    ========================================================= */
 .jos {
   opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease var(--jos-delay, 0s),
+    transform 0.8s ease var(--jos-delay, 0s);
 }
 
 .jos.slide-from-bottom {
   transform: translateY(60px);
 }
 
-.jos[data-jos_animation='zoom'] {
+.jos[data-jos_animation="fade-up"] {
+  transform: translateY(40px);
+}
+
+.jos[data-jos_animation="zoom"] {
   transform: scale(0.8);
 }
 
-.jos[data-jos_animation='fade-left'] {
+.jos[data-jos_animation="fade-left"] {
   transform: translateX(-80px);
 }
 
-.jos[data-jos_animation='fade-right'] {
+.jos[data-jos_animation="fade-right"] {
   transform: translateX(80px);
 }
 
-.jos[data-jos_animation='flip'] {
+.jos[data-jos_animation="flip"] {
   transform: perspective(1000px) rotateY(90deg);
 }
 
@@ -246,4 +252,124 @@
   font-size: 36px;
   line-height: 1;
   color: #fff;
+}
+
+/* =========================================================
+   7. BẢNG GIÁ - điểm nhấn gradient và trạng thái chu kỳ
+   ========================================================= */
+.billing-toggle {
+  min-width: 132px;
+}
+
+.billing-toggle.is-active {
+  background-color: #000;
+  color: #fff;
+}
+
+.pricing-card {
+  min-height: 390px;
+  transition:
+    opacity 0.8s ease var(--jos-delay, 0s),
+    transform 0.8s ease var(--jos-delay, 0s),
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.pricing-card.billing-flip-once {
+  animation: pricing-card-flip 600ms ease-in-out;
+  animation-delay: 0s;
+  backface-visibility: hidden;
+  transition-delay: 0s;
+}
+
+@keyframes pricing-card-flip {
+  0% {
+    transform: perspective(1000px) rotateY(0);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.pricing-card:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.pricing-card:hover h3 {
+  color: #fff;
+}
+
+.pricing-card:hover .billing-cadence,
+.pricing-card:hover .pricing-price {
+  color: #fff;
+}
+
+.pricing-card:hover a {
+  border-color: #fe330a;
+  color: #fff;
+}
+
+.pricing-card:hover a:hover {
+  background-color: #fe330a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card.billing-flip-once {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   8. FAQ - native, keyboard-accessible disclosure items
+   ========================================================= */
+.faq-item {
+  border-bottom: 1px solid #dbd6cf;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  color: #000;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  outline-offset: 4px;
+}
+
+.faq-question::after {
+  flex: 0 0 auto;
+  content: "+";
+  font-family: Inter, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item.is-open .faq-question::after {
+  content: "\00d7";
+}
+
+.faq-answer {
+  padding: 0 34px 24px 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.faq-answer[hidden] {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .faq-question {
+    font-size: 21px;
+  }
 }
