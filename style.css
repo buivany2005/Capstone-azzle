@@ -373,3 +373,8 @@
     font-size: 21px;
   }
 }
+
+@keyframes site-footer-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
