@@ -2,6 +2,11 @@
    MAIN.JS - Toàn bộ hiệu ứng của trang Home
    1. Hiệu ứng xuất hiện khi cuộn (thay cho JOS)
    2. Slider logo thương hiệu (Swiper)
+   3. Bộ đếm số (Funfact)
+   4. Bảng giá: chuyển tháng / năm
+   5. FAQ: mở / đóng câu hỏi
+   6. Popup video YouTube (Funfact)
+   7. Menu mobile / tablet
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -47,8 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".brand-slider")
   ) {
     new Swiper(".brand-slider", {
-      slidesPerView: 5,
-      spaceBetween: 60,
+      slidesPerView: 2, // mobile: 2 logo
+      spaceBetween: 30,
+      // Đổi số logo theo chiều rộng màn hình
+      breakpoints: {
+        768: { slidesPerView: 3, spaceBetween: 40 }, // tablet
+        1024: { slidesPerView: 4, spaceBetween: 50 }, // desktop nhỏ
+        1280: { slidesPerView: 5, spaceBetween: 60 }, // desktop
+      },
       loop: true,
       speed: 800,
       autoplay: {
@@ -227,6 +238,44 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && videoModal.classList.contains("is-open"))
         closeVideo();
+    });
+  }
+
+  /* -------------------------------------------------------
+     7. MENU MOBILE / TABLET (màn hình < 1024px)
+     - Bấm nút ☰: menu trượt từ trái ra
+     - Bấm dấu × hoặc nền tối: đóng menu
+     - Bấm mục có mũi tên: mở / đóng menu con
+     ------------------------------------------------------- */
+  var menuNav = document.getElementById("append-menu-header");
+  var menuOverlay = document.getElementById("menu-overlay");
+  var menuOpenBtn = document.getElementById("menu-open");
+  var menuCloseBtn = document.getElementById("menu-close");
+
+  function openMenu() {
+    menuNav.classList.remove("-translate-x-full");
+    menuOverlay.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    menuNav.classList.add("-translate-x-full");
+    menuOverlay.classList.add("hidden");
+  }
+
+  if (menuNav && menuOpenBtn) {
+    menuOpenBtn.addEventListener("click", openMenu);
+    menuCloseBtn.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", closeMenu);
+
+    menuNav.querySelectorAll(".drop-trigger").forEach(function (trigger) {
+      trigger.addEventListener("click", function (event) {
+        // Desktop: menu con mở bằng rê chuột (CSS), không cần JS
+        if (window.innerWidth >= 1024) return;
+        event.preventDefault();
+        var item = trigger.parentElement;
+        item.classList.toggle("is-open");
+        item.querySelector(".sub-menu").classList.toggle("hidden");
+      });
     });
   }
 });
