@@ -76,12 +76,14 @@
           color: #000;
         }
 
+        /* Cỡ chữ tiêu đề đổi theo màn hình:
+           mobile -> md (tablet) -> lg, xl, 2xl (desktop) */
         h1 {
-          font-size: 120px;
+          @apply text-5xl md:text-6xl lg:text-7xl xl:text-[100px] 2xl:text-[120px];
         }
 
         h2 {
-          font-size: 80px;
+          @apply text-4xl lg:text-6xl xl:text-7xl 2xl:text-[80px];
         }
       }
     </style>
@@ -108,11 +110,34 @@
 
             <!-- Header: Menu điều hướng -->
             <div class="menu-block-wrapper">
-              <nav class="menu-block" id="append-menu-header">
+              <!-- Lớp nền tối khi mở menu mobile (ẩn trên desktop) -->
+              <div
+                id="menu-overlay"
+                class="fixed inset-0 z-[998] hidden bg-black/50 lg:hidden"
+              ></div>
+              <!-- Mobile/tablet: menu trượt từ trái ra | Desktop: nằm ngang trên header -->
+              <nav
+                class="menu-block fixed left-0 top-0 z-[999] h-full w-[300px] -translate-x-full overflow-y-auto bg-white transition-transform duration-300 lg:static lg:h-auto lg:w-auto lg:translate-x-0 lg:overflow-visible lg:bg-transparent"
+                id="append-menu-header"
+              >
+                <!-- Đầu menu mobile: chữ Menu + nút đóng (ẩn trên desktop) -->
+                <div
+                  class="flex items-center justify-between border-b border-[#EAEDF0] px-5 py-4 lg:hidden"
+                >
+                  <span class="font-bold text-black">Menu</span>
+                  <button
+                    id="menu-close"
+                    type="button"
+                    class="text-3xl leading-none"
+                    aria-label="Đóng menu"
+                  >
+                    &times;
+                  </button>
+                </div>
                 <!-- Danh sách menu (các trang khác đã đổi link thành #) -->
-                <ul class="site-menu-main">
+                <ul class="site-menu-main flex flex-col px-5 lg:flex-row lg:items-center lg:gap-10 lg:px-0">
                   <!-- Menu: Demo -->
-                  <li class="nav-item nav-item-has-children">
+                  <li class="nav-item nav-item-has-children border-b border-[#EAEDF0] lg:border-0">
                     <a href="#" class="nav-link-item drop-trigger"
                       >Demo
                       <svg
@@ -129,7 +154,7 @@
                       >
                         <path d="m9 18 6-6-6-6" /></svg
                     ></a>
-                    <ul class="sub-menu" id="submenu-1">
+                    <ul class="sub-menu hidden lg:block" id="submenu-1">
                       <li class="sub-menu--item">
                         <a href="index.html">home 01</a>
                       </li>
@@ -140,12 +165,12 @@
                   </li>
 
                   <!-- Menu: About -->
-                  <li class="nav-item">
+                  <li class="nav-item border-b border-[#EAEDF0] lg:border-0">
                     <a class="nav-link-item" href="#">About</a>
                   </li>
 
                   <!-- Menu: Services -->
-                  <li class="nav-item nav-item-has-children">
+                  <li class="nav-item nav-item-has-children border-b border-[#EAEDF0] lg:border-0">
                     <a href="#" class="nav-link-item drop-trigger"
                       >Services
                       <svg
@@ -162,7 +187,7 @@
                       >
                         <path d="m9 18 6-6-6-6" /></svg
                     ></a>
-                    <ul class="sub-menu" id="submenu-2">
+                    <ul class="sub-menu hidden lg:block" id="submenu-2">
                       <li class="sub-menu--item"><a href="#">Services</a></li>
                       <li class="sub-menu--item">
                         <a href="#">Service Details</a>
@@ -171,7 +196,7 @@
                   </li>
 
                   <!-- Menu: Pages (có menu con cấp 2) -->
-                  <li class="nav-item nav-item-has-children">
+                  <li class="nav-item nav-item-has-children border-b border-[#EAEDF0] lg:border-0">
                     <a href="#" class="nav-link-item drop-trigger"
                       >Pages
                       <svg
@@ -188,7 +213,7 @@
                       >
                         <path d="m9 18 6-6-6-6" /></svg
                     ></a>
-                    <ul class="sub-menu" id="submenu-3">
+                    <ul class="sub-menu hidden lg:block" id="submenu-3">
                       <!-- Pages > Blogs -->
                       <li class="sub-menu--item nav-item-has-children">
                         <a href="#" data-menu-get="h3" class="drop-trigger"
@@ -207,7 +232,7 @@
                           >
                             <path d="m9 18 6-6-6-6" /></svg
                         ></a>
-                        <ul class="sub-menu shape-none" id="submenu-4">
+                        <ul class="sub-menu shape-none hidden lg:block" id="submenu-4">
                           <li class="sub-menu--item"><a href="#">blogs</a></li>
                           <li class="sub-menu--item">
                             <a href="#">blog details</a>
@@ -232,7 +257,7 @@
                           >
                             <path d="m9 18 6-6-6-6" /></svg
                         ></a>
-                        <ul class="sub-menu shape-none" id="submenu-5">
+                        <ul class="sub-menu shape-none hidden lg:block" id="submenu-5">
                           <li class="sub-menu--item"><a href="#">Teams</a></li>
                           <li class="sub-menu--item">
                             <a href="#">Teams Details</a>
@@ -257,7 +282,7 @@
                           >
                             <path d="m9 18 6-6-6-6" /></svg
                         ></a>
-                        <ul class="sub-menu shape-none" id="submenu-6">
+                        <ul class="sub-menu shape-none hidden lg:block" id="submenu-6">
                           <li class="sub-menu--item"><a href="#">FAQ-1</a></li>
                           <li class="sub-menu--item"><a href="#">FAQ-2</a></li>
                         </ul>
@@ -280,7 +305,7 @@
                           >
                             <path d="m9 18 6-6-6-6" /></svg
                         ></a>
-                        <ul class="sub-menu shape-none" id="submenu-7">
+                        <ul class="sub-menu shape-none hidden lg:block" id="submenu-7">
                           <li class="sub-menu--item">
                             <a href="#">Portfolio</a>
                           </li>
@@ -311,7 +336,7 @@
                           >
                             <path d="m9 18 6-6-6-6" /></svg
                         ></a>
-                        <ul class="sub-menu shape-none" id="submenu-8">
+                        <ul class="sub-menu shape-none hidden lg:block" id="submenu-8">
                           <li class="sub-menu--item">
                             <a href="#">Error 404</a>
                           </li>
@@ -326,7 +351,7 @@
                   </li>
 
                   <!-- Menu: Contact -->
-                  <li class="nav-item">
+                  <li class="nav-item border-b border-[#EAEDF0] lg:border-0">
                     <a class="nav-link-item" href="#">Contact</a>
                   </li>
                 </ul>
@@ -336,15 +361,26 @@
             <!-- Header: Nút Login / Sign up -->
             <div class="flex items-center gap-6">
               <a
-                class="button rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
+                class="button hidden rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
                 href="#"
                 >Login</a
               >
               <a
-                class="button rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white inline-block"
+                class="button hidden rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
                 href="#"
                 >Sign up free</a
               >
+              <!-- Nút ☰ mở menu (chỉ hiện trên mobile/tablet) -->
+              <button
+                id="menu-open"
+                type="button"
+                class="flex flex-col gap-[5px] p-1 lg:hidden"
+                aria-label="Mở menu"
+              >
+                <span class="block h-[2px] w-[26px] bg-black"></span>
+                <span class="block h-[2px] w-[26px] bg-black"></span>
+                <span class="block h-[2px] w-[26px] bg-black"></span>
+              </button>
             </div>
           </div>
         </div>
@@ -359,16 +395,16 @@
                  ----------------------------------------------------- -->
         <section id="section-carousel">
           <div
-            class="relative z-[1] overflow-hidden bg-colorLinenRuffle rounded-bl-[50px] rounded-br-[50px] pb-[133px] pt-[195px]"
+            class="relative z-[1] overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-colorLinenRuffle pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 2xl:pb-[133px] 2xl:pt-[195px]"
           >
             <div class="global-container">
               <!-- Carousel: Tiêu đề + mô tả + nút -->
-              <div class="flex flex-col items-center text-center mb-20">
-                <h1 class="jos slide-from-bottom mb-6 max-w-[1076px]">
+              <div class="mb-14 flex flex-col items-center text-center lg:mb-20">
+                <h1 class="jos slide-from-bottom mb-6 max-w-[510px] lg:max-w-[768px] xl:max-w-[1076px]">
                   Simplify your SaaS solution with AI
                 </h1>
                 <p
-                  class="jos slide-from-bottom mb-11 font-semibold text-xl max-w-[980px]"
+                  class="jos slide-from-bottom mb-11 max-w-[700px] text-lg font-semibold sm:text-xl xl:max-w-[980px]"
                 >
                   Our AI SAAS tool is a cloud-based software delivery model. It
                   helps businesses forecast demand for products and services and
@@ -406,10 +442,10 @@
               </div>
 
               <!-- Carousel: Đường kẻ ngang -->
-              <div class="h-[1px] w-full bg-[#DBD6CF] my-20"></div>
+              <div class="my-10 h-[1px] w-full bg-[#DBD6CF] lg:my-16 xl:my-20"></div>
 
               <!-- Carousel: Dòng giới thiệu thương hiệu -->
-              <div class="jos mx-auto max-w-[715px] text-center mb-16">
+              <div class="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16">
                 <p class="text-lg">
                   Companies of all sizes trust us to find AI SaaS critical to
                   their growth and innovation
@@ -532,7 +568,7 @@
           <div class="global-container wow">
             <div class="animate__animated animate__fadeInUp">
               <h2
-                class="mb-16 max-w-[720px] text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
+                class="mb-16 max-w-[720px] leading-[0.98]"
               >
                 Core features that<br class="hidden sm:block" />
                 make it valuable
@@ -761,9 +797,9 @@
         <!-- -----------------------------------------------------
              MAIN > 3. ACCESSIBLE: Tiếp cận với nhiều đối tượng hơn
              ----------------------------------------------------- -->
-        <section id="section-accessible" class="bg-white py-24 sm:py-32">
+        <section id="section-accessible" class="bg-white pb-20 xl:pb-[150px]">
           <div class="global-container">
-            <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+            <div class="grid items-center gap-12 md:grid-cols-2 lg:gap-24">
               <div
                 class="jos overflow-hidden rounded-[14px] bg-[#191919]"
                 data-jos_animation="fade-right"
@@ -788,7 +824,7 @@
                 data-jos_scrolldirection="down"
               >
                 <h2
-                  class="mb-10 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
+                  class="mb-10 leading-[0.98]"
                 >
                   Accessible to a<br class="hidden sm:block" />
                   wider audience
@@ -819,10 +855,10 @@
                  chữ + danh sách check bên trái, ảnh bên phải
                  ----------------------------------------------------- -->
         <section id="content-section-2">
-          <div class="pb-[150px]">
+          <div class="pb-20 xl:pb-[150px]">
             <div class="global-container">
               <div
-                class="grid items-center grid-cols-[minmax(0,_1.2fr)_1fr] gap-32"
+                class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-20 xl:grid-cols-[minmax(0,_1.2fr)_1fr] xl:gap-28 2xl:gap-32"
               >
                 <!-- Nội dung 2: Ảnh -->
                 <div
@@ -842,7 +878,7 @@
                   <div class="mb-6">
                     <h2>Providing quick deploy solutions</h2>
                   </div>
-                  <div class="leading-[1.4] text-[21px]">
+                  <div class="text-lg leading-[1.4] lg:text-[21px]">
                     <p class="mb-7 last:mb-0">
                       Our AI SaaS solutions can be quickly deployed, enabling
                       users to start benefiting from AI capabilities without
@@ -850,7 +886,7 @@
                       industries.
                     </p>
                     <ul
-                      class="flex flex-col gap-y-5 font-dmSans leading-tight tracking-tighter text-black mt-12 text-[28px]"
+                      class="flex flex-col gap-y-5 font-dmSans text-xl leading-tight tracking-tighter text-black lg:mt-12 lg:text-[28px]"
                     >
                       <li class="flex items-start gap-x-3">
                         <div class="mt-[2.5px] h-[30px] w-[30px]">
@@ -904,16 +940,16 @@
         <section id="funfact-section">
           <div class="mx-auto max-w-[1500px] px-5">
             <div
-              class="jos grid overflow-hidden bg-black rounded-[50px] grid-cols-[1fr_minmax(800px,_1fr)]"
+              class="jos grid grid-cols-1 overflow-hidden rounded-[30px] bg-black lg:rounded-[50px] xl:grid-cols-[minmax(400px,_1fr)_1.5fr] 2xl:grid-cols-[1fr_minmax(800px,_1fr)]"
             >
               <!-- Funfact: Ảnh + nút Play -->
-              <div class="relative overflow-hidden rounded-[50px]">
+              <div class="relative overflow-hidden rounded-[30px] lg:rounded-[50px]">
                 <img
                   src="images/funfact-image.jpg"
                   alt="funfact-image"
                   width="721"
                   height="784"
-                  class="w-full object-cover object-center h-full"
+                  class="h-80 w-full object-cover object-center lg:h-[35rem] xl:h-full"
                 />
                 <!-- Nút Play: bấm mở popup video YouTube -->
                 <a
@@ -934,11 +970,11 @@
               </div>
 
               <!-- Funfact: Chữ + bộ đếm số -->
-              <div class="self-center px-10 py-32 pl-16 pr-28">
-                <div class="mb-6">
+              <div class="self-center px-6 py-16 sm:py-20 md:px-16 xl:px-10 xl:py-24 2xl:py-32 2xl:pl-16 2xl:pr-28">
+                <div class="mb-8 lg:mb-16 xl:mb-6">
                   <h2 class="text-white">AI-powered that streamline tasks</h2>
                 </div>
-                <div class="text-left leading-[1.4] text-white text-[21px]">
+                <div class="text-left text-lg leading-[1.4] text-white lg:text-[21px]">
                   <p class="mb-7 last:mb-0">
                     As your business grows or your AI SaaS needs change, you can
                     easily adjust your subscription level to match those needs.
@@ -949,31 +985,31 @@
                 <div class="my-14 h-[1px] w-full bg-colorCodGray"></div>
                 <!-- Bộ đếm số (countup) -->
                 <ul
-                  class="flex gap-y-8 flex-row justify-normal text-left gap-x-20"
+                  class="flex flex-col justify-center gap-x-11 gap-y-8 text-center sm:flex-row md:text-left xl:justify-normal xl:text-left 2xl:gap-x-20"
                 >
                   <li>
                     <h3
-                      class="text-colorOrangyRed text-[120px]"
+                      class="text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[120px]"
                       data-module="countup"
                     >
                       <span class="start-number" data-countup-number="92"
                         >92</span
                       >%
                     </h3>
-                    <span class="block font-normal text-white text-[21px]">
+                    <span class="block text-lg font-normal text-white lg:text-[21px]">
                       Customer service inquiries
                     </span>
                   </li>
                   <li>
                     <h3
-                      class="text-colorOrangyRed text-[120px]"
+                      class="text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-[120px]"
                       data-module="countup"
                     >
                       <span class="start-number" data-countup-number="75"
                         >75</span
                       >%
                     </h3>
-                    <span class="block font-normal text-white text-[21px]">
+                    <span class="block text-lg font-normal text-white lg:text-[21px]">
                       Using financial institutions
                     </span>
                   </li>
@@ -990,7 +1026,7 @@
           <div class="global-container relative z-[1]">
             <div class="mx-auto mb-16 max-w-[760px] text-center">
               <h2
-                class="jos mb-10 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[72px]"
+                class="jos mb-10 leading-[0.98]"
                 data-jos_once="1"
                 data-jos_animation="fade-up"
                 data-jos_counter="1"
@@ -1135,9 +1171,9 @@
         <!-- -----------------------------------------------------
              MAIN > 7. FREELY: FAQ và liên hệ
              ----------------------------------------------------- -->
-        <section id="section-freely" class="bg-white py-24 sm:py-32">
+        <section id="section-freely" class="bg-white pb-20 xl:pb-[150px]">
           <div class="global-container">
-            <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-32">
+            <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr] lg:gap-32">
               <div
                 class="flex flex-col max-w-[650px] jos"
                 data-jos_animation="fade-right"
@@ -1146,7 +1182,7 @@
                 data-jos_scrolldirection="down"
               >
                 <h2
-                  class="mb-8 text-[48px] leading-[0.98] sm:text-[64px] lg:text-[76px]"
+                  class="mb-8 leading-[0.98]"
                 >
                   Freely ask us for more information
                 </h2>
@@ -1237,19 +1273,19 @@
              ----------------------------------------------------- -->
         <section class="testimonial-section">
           <!-- Khoảng cách trên/dưới của section -->
-          <div class="bg-black pb-[200px] pt-[130px]">
+          <div class="bg-black pb-40 pt-20 xl:pb-[200px] xl:pt-[130px]">
             <!-- Khung chứa nội dung -->
             <div class="global-container">
               <!-- Tiêu đề section -->
-              <div class="jos text-center mb-20">
-                <div class="mx-auto max-w-[680px]">
+              <div class="jos mb-10 text-center lg:mb-16 xl:mb-20">
+                <div class="mx-auto max-w-[300px] lg:max-w-[600px] xl:max-w-[680px]">
                   <h2 class="text-white">Positive feedback from our users</h2>
                 </div>
               </div>
               <!-- Tiêu đề section -->
 
               <!-- Danh sách đánh giá -->
-              <div class="grid gap-6 grid-cols-3">
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <!-- Thẻ đánh giá -->
                 <div
                   class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"

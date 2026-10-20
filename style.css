@@ -61,23 +61,16 @@
 }
 
 /* =========================================================
-   3. MENU - Rê chuột vào thì hiện menu con
+   3. MENU
+   - Mobile/tablet (< 1024px): menu trượt từ trái, bấm để mở menu con
+   - Desktop (>= 1024px): menu nằm ngang, rê chuột hiện menu con
+   (Hiện/ẩn menu, nút ☰, nút Login viết bằng class Tailwind trong HTML)
    ========================================================= */
-.site-menu-main {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.site-menu-main .nav-item {
-  position: relative;
-  padding: 20px 0;
-}
-
 .site-menu-main .nav-link-item,
 .site-menu-main .sub-menu--item > a {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 4px;
   font-weight: 600;
   color: #000;
@@ -87,56 +80,81 @@
   color: #fe330a;
 }
 
-/* Icon mũi tên: xoay 90 độ khi mở menu con */
-.site-menu-main .dropdown-icon {
-  transition: transform 0.3s ease;
-}
-
-.nav-item-has-children:hover > a .dropdown-icon {
-  transform: rotate(90deg);
-}
-
-/* Menu con (ẩn, rê chuột vào mới hiện) */
-.nav-item-has-children > .sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 10;
-  min-width: 220px;
-  padding: 15px 25px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: all 0.3s ease;
-}
-
-.nav-item-has-children:hover > .sub-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
 .sub-menu--item > a {
   padding: 8px 0;
   font-size: 16px;
   text-transform: capitalize;
 }
 
-/* Menu con cấp 2 (trong Pages) mở sang phải */
-.sub-menu .nav-item-has-children {
-  position: relative;
+/* Icon mũi tên: xoay 90 độ khi mở menu con */
+.site-menu-main .dropdown-icon {
+  transition: transform 0.3s ease;
 }
 
-.sub-menu .nav-item-has-children > a {
-  justify-content: space-between;
+/* ---------- Mobile / tablet ---------- */
+@media (max-width: 1023px) {
+  .site-menu-main .nav-link-item {
+    padding: 14px 0;
+  }
+
+  /* Menu con thụt vào bên trong */
+  .sub-menu {
+    padding: 0 0 10px 15px;
+  }
+
+  /* JS thêm class .is-open khi bấm mở menu con */
+  .nav-item-has-children.is-open > a .dropdown-icon {
+    transform: rotate(90deg);
+  }
 }
 
-.sub-menu .nav-item-has-children > .sub-menu {
-  top: 0;
-  left: calc(100% + 25px);
+/* ---------- Desktop ---------- */
+@media (min-width: 1024px) {
+  .site-menu-main .nav-item {
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .site-menu-main .nav-link-item {
+    justify-content: flex-start;
+  }
+
+  .nav-item-has-children:hover > a .dropdown-icon {
+    transform: rotate(90deg);
+  }
+
+  /* Menu con (ẩn, rê chuột vào mới hiện) */
+  .nav-item-has-children > .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    min-width: 220px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-item-has-children:hover > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Menu con cấp 2 (trong Pages) mở sang phải */
+  .sub-menu .nav-item-has-children {
+    position: relative;
+  }
+
+  .sub-menu .nav-item-has-children > .sub-menu {
+    top: 0;
+    left: calc(100% + 25px);
+  }
 }
 
 /* =========================================================
@@ -212,6 +230,7 @@
 .video-modal {
   position: fixed;
   inset: 0;
+  padding: 20px;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -229,7 +248,8 @@
 
 .video-modal__inner {
   position: relative;
-  width: 960px;
+  width: 100%;
+  max-width: 960px;
   aspect-ratio: 16 / 9;
   transform: scale(0.9);
   transition: transform 0.3s ease;
